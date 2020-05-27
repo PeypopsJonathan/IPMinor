@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+<nav th:replace="fragments/header"></nav>
+<h1>Task Details</h1>
+<table>
+    <tr th:text="${TaskDetail.title}"/><br>
+    <tr th:text="${TaskDetail.dueDate}"/><br>
+    <tr th:text="${TaskDetail.description}"/>
+    <tr th:each="subtask: ${TaskDetail.subtasks}">
+        <td th:text="${subtask.title}"></td>
+        <td th:text="${subtask.description}"></td>
+    </tr><br>
+    <a th:href="@{/tasks/edit/{id}(id=${TaskDetail.id})}">Update</a><br>
+    <a th:href="@{/tasks/__${id}__/sub/create}">Add Subtask</a><br>
+</table>
+</body>
+</html>

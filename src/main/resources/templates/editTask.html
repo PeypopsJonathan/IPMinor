@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+</head>
+<body>
+<nav th:replace="fragments/header"></nav>
+<form th:action="@{/tasks/edit/{id}}" th:object="${Task}" method="post">
+    <input type="text" th:field="*{title}" placeholder="Title"/>
+    <input type="datetime-local" th:field="*{date}" placeholder="Due Date"/>
+    <input type="text" th:field="*{description}" placeholder="Description"/>
+    <input type="hidden" th:field="*{id}">
+    <button type="submit" th:field="action">Create</button>
+</form>
+</body>
+</html>
