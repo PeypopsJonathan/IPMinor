@@ -2,15 +2,16 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Task</title>
+    <title th:text="#{Task}"></title>
 </head>
 <body>
-<nav th:replace="fragments/header"></nav>
-<h1>Task List</h1>
+<header th:replace="fragments/header"></header>
+<h1 th:text="#{TaskList}"></h1>
 <table>
     <tr>
-        <th>Title</th>
-        <th>Due Date</th>
+        <th th:text="#{ID}"></th>
+        <th th:text="#{Title}"></th>
+        <th th:text="#{DueDate}"></th>
     </tr>
     <tr th:each="task: ${Tasks}">
         <td><a th:href="@{/tasks/{id}(id=${task.id})}" th:text="${task.id}"></a></td>

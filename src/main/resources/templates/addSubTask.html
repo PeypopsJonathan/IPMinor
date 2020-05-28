@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Add subtask</title>
+    <title th:text="#{AddSubtask}"></title>
 </head>
 <body>
-<nav th:replace="fragments/header"></nav>
-<h1>Create new subtask</h1>
+<header th:replace="fragments/header"></header>
+<h1 th:text="#{CreateSubtask}"></h1>
 
 <form th:action="@{/tasks/__${id}__/sub/create}" th:object="${SubTask}" method="post">
-    <input type="text" th:field="*{title}" placeholder="Title"/>
-    <input type="text" th:field="*{description}" placeholder="Description"/>
-    <button type="submit" th:field="action">Create</button>
+    <input type="text" th:field="*{title}" th:placeholder="#{Title}"/>
+    <input type="text" th:field="*{description}" th:placeholder="#{Description}"/>
+    <button type="submit" th:field="action" th:text="#{Create}"></button>
 </form>
 
 </body>

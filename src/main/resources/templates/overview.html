@@ -5,8 +5,8 @@
     <title>Details</title>
 </head>
 <body>
-<nav th:replace="fragments/header"></nav>
-<h1>Task Details</h1>
+<header th:replace="fragments/header"></header>
+<h1 th:text="#{TaskDetails}"></h1>
 <table>
     <tr th:text="${TaskDetail.title}"/><br>
     <tr th:text="${TaskDetail.dueDate}"/><br>
@@ -15,8 +15,8 @@
         <td th:text="${subtask.title}"></td>
         <td th:text="${subtask.description}"></td>
     </tr><br>
-    <a th:href="@{/tasks/edit/{id}(id=${TaskDetail.id})}">Update</a><br>
-    <a th:href="@{/tasks/__${id}__/sub/create}">Add Subtask</a><br>
+    <a th:href="@{/tasks/edit/{id}(id=${TaskDetail.id})}" th:text="#{Update}"></a><br>
+    <a th:href="@{/tasks/__${id}__/sub/create}" th:text="#{AddSubtask}"></a><br>
 </table>
 </body>
 </html>

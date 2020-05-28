@@ -2,16 +2,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Task</title>
+    <title th:text="#{EditTask}"></title>
 </head>
 <body>
-<nav th:replace="fragments/header"></nav>
+<header th:replace="fragments/header"></header>
 <form th:action="@{/tasks/edit/{id}}" th:object="${Task}" method="post">
-    <input type="text" th:field="*{title}" placeholder="Title"/>
-    <input type="datetime-local" th:field="*{date}" placeholder="Due Date"/>
-    <input type="text" th:field="*{description}" placeholder="Description"/>
+    <label th:text="#{Title}"></label>
+    <input type="text" th:field="*{title}" th:placeholder="#{Title}"/>
+    <label th:text="#{DueDate}"></label>
+    <input type="datetime-local" th:field="*{date}" th:placeholder="#{DueDate}"/>
+    <label th:text="#{Description}"></label>
+    <input type="text" th:field="*{description}" th:placeholder="#{Description}"/>
     <input type="hidden" th:field="*{id}">
-    <button type="submit" th:field="action">Create</button>
+    <button type="submit" th:field="action" th:text="#{Create}"></button>
 </form>
 </body>
 </html>

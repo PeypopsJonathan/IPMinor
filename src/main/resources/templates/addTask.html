@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Add</title>
+    <title th:text="#{Add}"></title>
 </head>
 <body>
-<nav th:replace="fragments/header"></nav>
-<h1>Create new task</h1>
+<header th:replace="fragments/header"></header>
+<h1 th:text="#{CreateTask}"></h1>
 
 <form th:action="@{/tasks/new}" th:object="${Task}" method="post">
-    <input type="text" th:field="*{title}" placeholder="Title"/>
-    <input type="datetime-local" th:field="*{date}" placeholder="Due Date"/>
-    <input type="text" th:field="*{description}" placeholder="Description"/>
-    <button type="submit" th:field="action">Create</button>
+    <input type="text" th:field="*{title}" th:placeholder="#{Title}"/>
+    <input type="datetime-local" th:field="*{date}" th:placeholder="DueDate"/>
+    <input type="text" th:field="*{description}" th:placeholder="#{Description}"/>
+    <button type="submit" th:field="action" th:text="#{Create}"></button>
 </form>
 
 </body>
