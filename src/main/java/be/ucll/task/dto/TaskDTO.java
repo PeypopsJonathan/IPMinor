@@ -80,4 +80,13 @@ public class TaskDTO {
     public void addSubTask(SubTaskDTO subTask){
         this.subtasks.add(subTask);
     }
+
+    public SubTaskDTO getSubTask(UUID id){
+        for(SubTaskDTO s : subtasks){
+            if(s.getId().equals(id)){
+                return s;
+            }
+        }
+        return null;
+    }
 }

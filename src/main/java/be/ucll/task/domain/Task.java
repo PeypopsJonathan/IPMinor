@@ -20,7 +20,7 @@ public class Task {
     private LocalDateTime date;
     private String description;
     private String dueDate;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SubTask> subtasks;
 
     public Task() {
@@ -34,6 +34,7 @@ public class Task {
         this.description = description;
         this.date = dueDate;
         setDueDate();
+        subtasks = new ArrayList<>();
     }
 
     public String getDueDate() {
@@ -91,5 +92,14 @@ public class Task {
 
     public void addSubTask(SubTask subTask){
         this.subtasks.add(subTask);
+    }
+
+    public SubTask getSubTask(SubTask subtask){
+        for(SubTask s : this.subtasks){
+            if(s.getId().equals(subtask.getId())){
+                return s;
+            }
+        }
+        return null;
     }
 }

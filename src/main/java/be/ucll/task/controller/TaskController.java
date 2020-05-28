@@ -1,6 +1,5 @@
 package be.ucll.task.controller;
 
-import be.ucll.task.domain.SubTask;
 import be.ucll.task.domain.Task;
 import be.ucll.task.dto.SubTaskDTO;
 import be.ucll.task.dto.TaskDTO;
