@@ -24,7 +24,7 @@ public class Task {
     private List<SubTask> subtasks;
 
     public Task() {
-
+        this.id = UUID.randomUUID();
         subtasks = new ArrayList<>();
     }
 

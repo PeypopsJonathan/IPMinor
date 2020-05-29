@@ -20,7 +20,16 @@ public class TaskDTO {
     private List<SubTaskDTO> subtasks;
 
     public TaskDTO() {
+        id = UUID.randomUUID();
+        subtasks = new ArrayList<>();
+    }
 
+    public TaskDTO(UUID id, String title, String description, LocalDateTime date) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.description = description;
+        setDueDate();
         subtasks = new ArrayList<>();
     }
 
