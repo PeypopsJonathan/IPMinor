@@ -7,7 +7,7 @@
 <body>
 <header th:replace="fragments/header"></header>
 <h1 th:text="#{TaskDetails}"></h1>
-<table>
+<table th:if="${TaskDetail} != null">
     <tr th:text="${TaskDetail.title}"/><br>
     <tr th:text="${TaskDetail.dueDate}"/><br>
     <tr th:text="${TaskDetail.description}"/>
@@ -18,5 +18,6 @@
     <a th:href="@{/tasks/edit/{id}(id=${TaskDetail.id})}" th:text="#{Update}"></a><br>
     <a th:href="@{/tasks/__${id}__/sub/create}" th:text="#{AddSubtask}"></a><br>
 </table>
+<div th:if="${TaskDetail} == null"><p th:text="#{NoTask}"></p></div>
 </body>
 </html>
